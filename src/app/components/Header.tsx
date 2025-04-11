@@ -20,19 +20,18 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-gray-800 text-white p-4">
-            <h1 className="text-2xl font-bold">Ping Pong Elo Calculator</h1>
-            <nav className="mt-4">
-                <ul className="flex space-x-4">
-                    <li>
-                        <a href="/" className="hover:underline">Home</a>
-                    </li>
-                    <li>
-                        <a href="/match" className="hover:underline">Match</a>
-                    </li>
-                    <li>
-                    {user ? (
+        <nav className="flex items-center justify-between py-4 px-10 bg-blue-400 text-white">
+            <div className="flex items-center">
+                <Link href="/" className="text-4xl font-bold ml-7">
+                    Ping Pong
+                </Link>
+            </div>
+            <div>
+                {user ? (
                     <div>
+                        <Link href={`/match`} className="ml-10">
+                            Match
+                        </Link>
                         <Link href="/account" className="ml-10">
                             Profil
                         </Link>
@@ -41,13 +40,11 @@ export default function Header() {
                         </button>
                     </div>
                 ) : !isAuthPage && (
-                    <Link href="/account/signin">
+                    <Link href="/signin">
                         Logg inn
                     </Link>
                 )}
-                    </li>
-                </ul>
-            </nav>
-        </header>
+            </div>
+        </nav>
     );
 }
