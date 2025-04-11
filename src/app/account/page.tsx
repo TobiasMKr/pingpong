@@ -34,7 +34,7 @@ export default function Account() {
           <>
             <p>Navn: {userData.username}</p>
             <p>Email: {userData.email}</p>
-            <p>ELO: {userData.elo}</p>
+            <p>ELO: {Math.round(userData.elo)}</p>
           </>
         ) : (
           <p>Data not available</p>
