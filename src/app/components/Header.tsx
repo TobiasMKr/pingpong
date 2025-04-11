@@ -29,9 +29,6 @@ export default function Header() {
             <div>
                 {user ? (
                     <div>
-                        <Link href={`/match`} className="ml-10">
-                            Match
-                        </Link>
                         <Link href="/account" className="ml-10">
                             Profil
                         </Link>

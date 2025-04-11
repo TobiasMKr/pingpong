@@ -54,7 +54,7 @@ const SignUpPage = () => {
                         type="username"
                         id="username"
                         required
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
@@ -65,7 +65,7 @@ const SignUpPage = () => {
                         type="email"
                         id="email"
                         required
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
@@ -76,21 +76,21 @@ const SignUpPage = () => {
                         type="password"
                         id="password"
                         required
-                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 
                 <button
                     type="button"
-                    className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
                     onClick={handleSubmit}
                 >
                     Opprett ny bruker
                 </button>
 
                 <div className="block text-center mt-4">
-                    <Link href="/account/signin" className="text-green-500 hover:text-green-600 hover:underline">
+                    <Link href="/account/signin" className="text-blue-500 hover:text-blue-600 hover:underline">
                         Logg inn
                     </Link>
                 </div>
