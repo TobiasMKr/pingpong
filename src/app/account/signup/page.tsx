@@ -10,6 +10,8 @@ import { auth, db } from "../../../../lib/firebase";
 const SignUpPage = () => {
     const router = useRouter();
 
+
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -24,6 +26,7 @@ const SignUpPage = () => {
 
             // Lag bruker-dokument i Firestore
             await setDoc(doc(db, "users", user.uid), {
+                username: username,
                 uid: user.uid,
                 email: user.email,
                 createdAt: new Date(),
@@ -44,6 +47,17 @@ const SignUpPage = () => {
                 <h1 className="text-2xl font-bold mb-6">Opprett ny bruker</h1>
 
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
+                <div className="mb-4">
+                    <label htmlFor="username" className="block text-gray-700">Username</label>
+                    <input
+                        type="username"
+                        id="username"
+                        required
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
 
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700">Email</label>
