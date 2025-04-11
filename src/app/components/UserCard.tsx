@@ -15,7 +15,7 @@ export default function UserCard({ user }: { user: any }) {
                 {user ? (
                     <>
                         <h2 className="text-xl font-bold mb-4">{user.username}</h2>
-                        <p>ELO: {user.elo}</p>
+                        <p>ELO: {Math.round(user.elo)}</p>
                     </>
                 ) : (
                     <p>Data not available</p>

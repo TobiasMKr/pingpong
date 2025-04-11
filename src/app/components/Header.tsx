@@ -32,7 +32,9 @@ export default function Header() {
                         <Link href="/account" className="ml-10">
                             Profil
                         </Link>
-                        <button onClick={handleLogout} className="ml-10">
+                        <button 
+                            onClick={handleLogout} 
+                            className="ml-10 hover:cursor-pointer">
                             Logg ut
                         </button>
                     </div>

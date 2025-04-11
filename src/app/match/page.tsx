@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
+import { useRouter } from "next/navigation";
 
 export default function MatchPage() {
     const [userProbability, setUserProbability] = useState<number>(0);
@@ -16,6 +17,7 @@ export default function MatchPage() {
     const { user } = useAuth();
     const [userData, setUserData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
 
     const searchParams = useSearchParams();
@@ -87,8 +89,7 @@ export default function MatchPage() {
             await updateDoc(opponentRef, { elo: opponentNewElo });
 
             alert("ELO updated! ✅");
-            // Optionally: redirect
-            // router.push("/")
+            router.push("/")
         } catch (error) {
             console.error("Failed to update ELO:", error);
             alert("Noe gikk galt med å oppdatere ELO.");
@@ -107,8 +108,7 @@ export default function MatchPage() {
             await updateDoc(opponentRef, { elo: opponentNewElo });
 
             alert("ELO updated! ✅");
-            // Optionally: redirect
-            // router.push("/")
+            router.push("/")
         } catch (error) {
             console.error("Failed to update ELO:", error);
             alert("Noe gikk galt med å oppdatere ELO.");
@@ -126,7 +126,7 @@ export default function MatchPage() {
                     <>
                         <p>Opponent: {opponentUsername}</p>
                         <p>Your ELO: {Math.round(userData.elo)}</p>
-                        <p>Opponent ELO: {opponentElo}</p>
+                        <p>Opponent ELO: {opponentElo ? Math.round(parseInt(opponentElo, 10)) : "N/A"}</p>
                         <p>Your Probability of Winning: {(userProbability * 100).toFixed(2)}%</p>
                         <p>Opponent Probability of Winning: {(opponentProbability * 100).toFixed(2)}%</p>
                         <p>Win ELO change: {Math.round(winEloChange)}</p>

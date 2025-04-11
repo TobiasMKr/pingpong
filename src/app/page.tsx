@@ -46,13 +46,15 @@ export default function Home() {
   }, [user]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-12 px-4">
       {users.length > 0 ? (
-        users.map((userData) => (
-          <UserCard key={userData.uid} user={userData} />
-        ))
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {users.map((userData) => (
+            <UserCard key={userData.uid} user={userData} />
+          ))}
+        </div>
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <div className="text-center mt-12">
           <h1 className="text-2xl font-bold mb-4">Ingen brukere funnet</h1>
           <Link href="/account/signup" className="text-blue-500 underline">
             Registrer deg nå!
@@ -61,4 +63,5 @@ export default function Home() {
       )}
     </div>
   );
+  
 }
